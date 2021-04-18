@@ -13,7 +13,6 @@ import {
 	useColorModeValue,
 } from '@chakra-ui/react'
 
-// markup
 const IndexPage = () => {
 	const { colorMode, toggleColorMode } = useColorMode()
 	const bg = useColorModeValue('red.600', 'red.100')
