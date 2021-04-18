@@ -6,7 +6,6 @@ module.exports = {
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
@@ -25,5 +24,6 @@ module.exports = {
       },
       __key: "pages",
     },
+    "@chakra-ui/gatsby-plugin",
   ],
 };
