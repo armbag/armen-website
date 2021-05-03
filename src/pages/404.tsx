@@ -1,7 +1,6 @@
 import * as React from "react"
 
-// markup
-const NotFoundPage = () => {
+const NotFoundPage = (): JSX.Element => {
   return <h1>hey</h1>
 }
 
