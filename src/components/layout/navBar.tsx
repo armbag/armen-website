@@ -8,7 +8,10 @@ import {
   LinkBox,
   Text,
   Flex,
+  useColorMode,
 } from "@chakra-ui/react"
+
+import { MoonIcon, SunIcon } from "@chakra-ui/icons"
 
 import { Link, graphql, useStaticQuery } from "gatsby"
 
@@ -23,6 +26,7 @@ type PropsInterface = {
 }
 
 const Header = (props: PropsInterface): JSX.Element => {
+  const { colorMode, toggleColorMode } = useColorMode()
   const { site } = useStaticQuery(graphql`
     query {
       site {
@@ -48,6 +52,12 @@ const Header = (props: PropsInterface): JSX.Element => {
           {title}
         </Text>
         <HStack justify="center" alignItems="center">
+          {colorMode === "light" ? (
+            <MoonIcon onClick={toggleColorMode} />
+          ) : (
+            <SunIcon onClick={toggleColorMode} />
+          )}
+
           {links.map((link, index) => (
             <LinkBox
               as={Link}
@@ -62,7 +72,6 @@ const Header = (props: PropsInterface): JSX.Element => {
                 color: "black",
                 borderBottom: "5px solid gold",
               }}
-              // isActive={(match: unknown) => !!match}
             >
               {link.text}
             </LinkBox>

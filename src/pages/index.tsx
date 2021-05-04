@@ -20,7 +20,7 @@ const IndexPage = (): JSX.Element => {
   return (
     <Layout>
       <Heading>Let&apos;s do this</Heading>
-      <SimpleGrid minChildH="300px" gap="20px">
+      <SimpleGrid columns={[1, 2]} gap="20px">
         <Square size="300px" bg="hsl(0, 61%, 39%)" color="white">
           <PhoneIcon />
         </Square>

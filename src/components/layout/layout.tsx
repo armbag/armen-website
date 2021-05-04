@@ -38,7 +38,7 @@ const Layout = ({
         <Flex
           direction="column"
           alignItems="center"
-          minH={{ base: "84vh", md: "81vh" }}
+          minH={{ base: "85vh", md: "81vh" }}
           {...props}
         >
           {children}
