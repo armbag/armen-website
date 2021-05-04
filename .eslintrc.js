@@ -40,4 +40,12 @@ module.exports = {
     // allow @ts-ignore for testing purposes
     "@typescript-eslint/ban-ts-ignore": "off",
   },
+  overrides: [
+    {
+      files: ["*.ts"],
+      rules: {
+        "no-undef": "off",
+      },
+    },
+  ],
 }
