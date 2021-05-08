@@ -1,4 +1,6 @@
 import * as React from "react"
+import { ReactElement } from "react"
+
 import {
   HStack,
   List,
@@ -21,9 +23,11 @@ export const links = [
   { to: "/contact", text: "Contact" },
 ]
 
-type PropsInterface = (bg: string) => JSX.Element
+type PropsInterface = {
+  bg: string
+}
 
-const Header: PropsInterface = (props) => {
+const NavBar: React.FC<PropsInterface> = (props): ReactElement => {
   const { colorMode, toggleColorMode } = useColorMode()
   const { site } = useStaticQuery(graphql`
     query {
@@ -81,4 +85,4 @@ const Header: PropsInterface = (props) => {
   //
 }
 
-export default Header
+export default NavBar

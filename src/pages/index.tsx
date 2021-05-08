@@ -13,7 +13,6 @@ import {
 } from "@chakra-ui/react"
 
 import { PhoneIcon } from "@chakra-ui/icons"
-
 import Layout from "../components/layout/layout"
 
 const IndexPage = (): JSX.Element => {

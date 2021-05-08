@@ -11,7 +11,7 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react"
 
-import Head from "../head"
+import SEO from "../SEO"
 import NavBar from "./navBar"
 import MobileNavBar from "./mobileNavBar"
 import Footer from "./footer"
@@ -29,7 +29,7 @@ const Layout = ({
   return (
     <Flex mx="auto" direction="column">
       <Box>
-        <Head page={page} />
+        <SEO page={page} />
         {isLargerThan1340 ? (
           <NavBar bg="teal.300" />
         ) : (
@@ -38,7 +38,7 @@ const Layout = ({
         <Flex
           direction="column"
           alignItems="center"
-          minH={{ base: "85vh", md: "81vh" }}
+          minH={{ base: "83vh", md: "81vh" }}
           {...props}
         >
           {children}
