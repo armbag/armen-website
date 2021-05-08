@@ -11,17 +11,20 @@ import {
   VStack,
   IconButton,
   LinkBox,
+  useColorMode,
 } from "@chakra-ui/react"
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons"
 import React, { useRef, ReactElement } from "react"
 import { links } from "./navBar"
 import { Link, graphql, useStaticQuery } from "gatsby"
+import { MoonIcon, SunIcon } from "@chakra-ui/icons"
 
 type PropsInterface = {
   bg: string
 }
 
 const MobileNavBar: React.FC<PropsInterface> = (props): ReactElement => {
+  const { colorMode, toggleColorMode } = useColorMode()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const openMenuRef = useRef(null)
   const closeMenuRef = useRef(null)
@@ -53,7 +56,7 @@ const MobileNavBar: React.FC<PropsInterface> = (props): ReactElement => {
           color="gray.600"
           fontWeight="700"
         >
-          Mobile {title}
+          {title}
         </Text>
 
         <Flex direction="row">
@@ -96,6 +99,11 @@ const MobileNavBar: React.FC<PropsInterface> = (props): ReactElement => {
 
               <DrawerBody p={0}>
                 <VStack spacing={0}>
+                  {colorMode === "light" ? (
+                    <MoonIcon onClick={toggleColorMode} />
+                  ) : (
+                    <SunIcon onClick={toggleColorMode} />
+                  )}
                   {links.map((link, index) => (
                     <LinkBox
                       as={Link}

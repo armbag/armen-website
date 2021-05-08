@@ -21,11 +21,9 @@ export const links = [
   { to: "/contact", text: "Contact" },
 ]
 
-type PropsInterface = {
-  bg: string
-}
+type PropsInterface = (bg: string) => JSX.Element
 
-const Header = (props: PropsInterface): JSX.Element => {
+const Header: PropsInterface = (props) => {
   const { colorMode, toggleColorMode } = useColorMode()
   const { site } = useStaticQuery(graphql`
     query {
