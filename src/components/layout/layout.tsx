@@ -17,11 +17,10 @@ import MobileNavBar from "./mobileNavBar"
 import Footer from "./footer"
 
 const Layout = ({
-  page,
   children,
-  ...props
+  title,
 }: {
-  page?: string
+  title?: string
   children: any
 }): JSX.Element => {
   const [isLargerThan1340] = useMediaQuery("(min-width: 1340px)")
@@ -29,7 +28,7 @@ const Layout = ({
   return (
     <Flex mx="auto" direction="column">
       <Box>
-        <SEO page={page} />
+        <SEO title={title} />
         {isLargerThan1340 ? (
           <NavBar bg="teal.300" />
         ) : (
@@ -39,7 +38,6 @@ const Layout = ({
           direction="column"
           alignItems="center"
           minH={{ base: "83vh", md: "81vh" }}
-          {...props}
         >
           {children}
         </Flex>
