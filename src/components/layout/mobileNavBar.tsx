@@ -7,7 +7,6 @@ import {
   Text,
   Flex,
   Box,
-  Stack,
   VStack,
   IconButton,
   LinkBox,
@@ -16,8 +15,9 @@ import {
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons"
 import React, { useRef, ReactElement } from "react"
 import { links } from "./navBar"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { MoonIcon, SunIcon } from "@chakra-ui/icons"
+import { Link, useTranslation } from "gatsby-plugin-react-i18next"
 
 type PropsInterface = {
   bg: string
@@ -28,6 +28,7 @@ const MobileNavBar: React.FC<PropsInterface> = (props): ReactElement => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const openMenuRef = useRef(null)
   const closeMenuRef = useRef(null)
+  const { t } = useTranslation()
 
   const { site } = useStaticQuery(graphql`
     query {
@@ -119,7 +120,7 @@ const MobileNavBar: React.FC<PropsInterface> = (props): ReactElement => {
                         borderBottom: "5px solid gold",
                       }}
                     >
-                      {link.text}
+                      {t(link.text)}
                     </LinkBox>
                   ))}
                 </VStack>

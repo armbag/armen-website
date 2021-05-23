@@ -1,26 +1,17 @@
 import * as React from "react"
 import { ReactElement } from "react"
+import { Link, useTranslation } from "gatsby-plugin-react-i18next"
 
-import {
-  HStack,
-  List,
-  Heading,
-  UnorderedList,
-  ListItem,
-  LinkBox,
-  Text,
-  Flex,
-  useColorMode,
-} from "@chakra-ui/react"
+import { HStack, LinkBox, Text, Flex, useColorMode } from "@chakra-ui/react"
 
 import { MoonIcon, SunIcon } from "@chakra-ui/icons"
 
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 
 export const links = [
-  { to: "/blog", text: "Blog" },
-  { to: "/about", text: "About" },
-  { to: "/contact", text: "Contact" },
+  { to: "/blog", text: "blog" },
+  { to: "/about", text: "about" },
+  { to: "/contact", text: "contact" },
 ]
 
 type PropsInterface = {
@@ -38,6 +29,8 @@ const NavBar: React.FC<PropsInterface> = (props): ReactElement => {
       }
     }
   `)
+  const { t } = useTranslation()
+
   const { title } = site.siteMetadata
 
   return (
@@ -75,7 +68,7 @@ const NavBar: React.FC<PropsInterface> = (props): ReactElement => {
                 borderBottom: "5px solid gold",
               }}
             >
-              {link.text}
+              {t(link.text)}
             </LinkBox>
           ))}
         </HStack>

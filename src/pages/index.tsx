@@ -1,16 +1,6 @@
 import * as React from "react"
-import {
-  Button,
-  Flex,
-  Heading,
-  Input,
-  useColorMode,
-  useColorModeValue,
-  SimpleGrid,
-  Square,
-  VStack,
-  Wrap,
-} from "@chakra-ui/react"
+import { Heading, SimpleGrid, Square } from "@chakra-ui/react"
+import { graphql } from "gatsby"
 
 import { PhoneIcon } from "@chakra-ui/icons"
 import Layout from "../components/layout/layout"
@@ -53,3 +43,17 @@ const IndexPage = (): JSX.Element => {
 }
 
 export default IndexPage
+
+export const query = graphql`
+  query($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`

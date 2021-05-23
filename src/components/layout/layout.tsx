@@ -1,15 +1,6 @@
 import * as React from "react"
-import {
-  Spacer,
-  HStack,
-  List,
-  UnorderedList,
-  ListItem,
-  Box,
-  Slide,
-  Flex,
-  useMediaQuery,
-} from "@chakra-ui/react"
+import { Box, Button, Flex, useMediaQuery } from "@chakra-ui/react"
+import { useTranslation, useI18next } from "gatsby-plugin-react-i18next"
 
 import SEO from "../SEO"
 import NavBar from "./navBar"
@@ -23,10 +14,21 @@ const Layout = ({
   title?: string
   children: any
 }): JSX.Element => {
+  const { language, changeLanguage } = useI18next()
+  const { t } = useTranslation()
   const [isLargerThan1340] = useMediaQuery("(min-width: 1340px)")
+
+  function toggleLanguage() {
+    if (language === "en") {
+      changeLanguage("fr")
+      return
+    }
+    changeLanguage("en")
+  }
 
   return (
     <Flex mx="auto" direction="column">
+      <Button onClick={toggleLanguage}>{t("button.changeLang")}</Button>
       <Box>
         <SEO title={title} />
         {isLargerThan1340 ? (

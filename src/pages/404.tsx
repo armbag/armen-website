@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Heading } from "@chakra-ui/react"
 import SEO from "../components/SEO"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout/layout"
 
@@ -14,3 +15,17 @@ const NotFoundPage = (): JSX.Element => {
 }
 
 export default NotFoundPage
+
+export const query = graphql`
+  query($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`

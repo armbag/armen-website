@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Flex, Text, HStack } from "@chakra-ui/react"
+import { Flex, Text } from "@chakra-ui/react"
 
 import { graphql, useStaticQuery } from "gatsby"
 
